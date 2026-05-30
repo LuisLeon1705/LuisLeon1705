@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, ChevronLeft, Languages, Mail, MessageSquare } from 'lucide-react';
 import Image from 'next/image';
 import { ReactNode } from 'react';
-import portrait from '../../public/Photograph/Curriculum.jpg';
+import portrait from '../assets/Photograph/Curriculum.jpg';
 
 const Tooltip = ({ content, children }: { content: string, children: ReactNode }) => {
   return (
