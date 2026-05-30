@@ -154,8 +154,17 @@ const Page = ({
 export default function TheDossier({ activeSpread = 0 }: { activeSpread?: number }) {
   const { t } = useLanguage();
 
-  // Use the environment variable injected during build (from next.config.ts)
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  // Robust client-side check for GitHub Pages
+  let basePath = '';
+  if (typeof window !== 'undefined') {
+    if (window.location.hostname.includes('github.io')) {
+      basePath = '/LuisLeon1705';
+    }
+  } else {
+    // Fallback for build-time/server-side
+    basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  }
+  
   const finalPortraitPath = `${basePath}/Photograph/Curriculum.jpg`;
 
   const s0 = t.menu.spreads[0];
