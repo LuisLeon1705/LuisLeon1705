@@ -154,12 +154,6 @@ const Page = ({
 export default function TheDossier({ activeSpread = 0 }: { activeSpread?: number }) {
   const { t } = useLanguage();
 
-  // Determine base path for assets (GitHub Pages vs Vercel/Local)
-  const isProd = typeof window !== 'undefined' && window.location.hostname !== 'localhost';
-  const isVercel = typeof window !== 'undefined' && window.location.hostname.includes('vercel.app');
-  const basePath = (isProd && !isVercel) ? '/LuisLeon1705' : '';
-  const portraitPath = `${basePath}/Photograph/Curriculum.jpg`;
-
   const s0 = t.menu.spreads[0];
   const s1 = t.menu.spreads[1];
   const s2 = t.menu.spreads[2];
@@ -177,7 +171,7 @@ export default function TheDossier({ activeSpread = 0 }: { activeSpread?: number
             title={t.menu.title} 
             subtitle={t.menu.subtitle} 
             showPortrait={true} 
-            portraitPath={portraitPath} 
+            portraitPath={portrait} 
             pageNumber={1} 
             totalPageNumbers={6}
             side="left"
