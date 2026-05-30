@@ -10,12 +10,16 @@ const nextConfig: NextConfig = {
   output: "export",
 
   // 2. Set the Base Path for GitHub Pages
-  // Priority: GitHub Actions needs the repo name. Vercel and Local use the root.
   basePath: isGH ? `/${repo}` : (isProd && !isVercel ? `/${repo}` : ''),
 
   // 3. Disable Image Optimization
   images: {
     unoptimized: true,
+  },
+
+  // 4. Pass the base path to the client-side
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isGH ? `/${repo}` : (isProd && !isVercel ? `/${repo}` : ''),
   },
 };
 

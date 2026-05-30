@@ -154,10 +154,8 @@ const Page = ({
 export default function TheDossier({ activeSpread = 0 }: { activeSpread?: number }) {
   const { t } = useLanguage();
 
-  // Determine base path manually for the static string
-  const isProd = typeof window !== 'undefined' && 
-                 window.location.hostname.includes('github.io');
-  const basePath = isProd ? '/LuisLeon1705' : '';
+  // Use the environment variable injected during build
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   const finalPortraitPath = `${basePath}/Photograph/Curriculum.jpg`;
 
   const s0 = t.menu.spreads[0];
